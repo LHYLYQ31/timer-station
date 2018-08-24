@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="${dubbo.application.name}"/>
+    <dubbo:registry check="true" address="${dubbo.consumer.address}"/>
+    <dubbo:reference interface="com.sinosoft.interfaces.carinfo.service.CarInfoProvider" id="carInfoProvider"/>
+    
+     <dubbo:reference interface="com.sinosoft.interfaces.station.service.StationProvider" timeout="100000" id="stationProvider"/>
+</beans>
